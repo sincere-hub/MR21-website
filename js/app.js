@@ -122,3 +122,40 @@ updateProgress();
 backTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+const serviceSlides = document.querySelectorAll(".service-slide");
+let activeServiceIndex = 0;
+
+const rotateServiceSlides = () => {
+    if (!serviceSlides.length) return;
+    serviceSlides[activeServiceIndex].classList.remove("is-active");
+    activeServiceIndex = (activeServiceIndex + 1) % serviceSlides.length;
+    serviceSlides[activeServiceIndex].classList.add("is-active");
+};
+
+setInterval(rotateServiceSlides, 4500);
+
+// Contact hero two-image rotator
+const contactHeroImages = document.querySelectorAll('.contact-hero__img');
+let contactActive = 0;
+const rotateContactHero = () => {
+    if (!contactHeroImages || contactHeroImages.length < 2) return;
+    contactHeroImages[contactActive].classList.remove('is-active');
+    contactActive = (contactActive + 1) % contactHeroImages.length;
+    contactHeroImages[contactActive].classList.add('is-active');
+};
+
+setInterval(rotateContactHero, 4500);
+
+const planGrid = document.querySelector('.plan-preview-grid');
+const prevArrow = document.querySelector('.plans-arrow--prev');
+const nextArrow = document.querySelector('.plans-arrow--next');
+
+const scrollPlan = (direction) => {
+    if (!planGrid) return;
+    const cardWidth = planGrid.querySelector('.plan-preview')?.offsetWidth || 300;
+    planGrid.scrollBy({ left: direction * (cardWidth + 30), behavior: 'smooth' });
+};
+
+prevArrow?.addEventListener('click', () => scrollPlan(-1));
+nextArrow?.addEventListener('click', () => scrollPlan(1));
