@@ -13,7 +13,9 @@ window.addEventListener("scroll", setHeaderState, { passive: true });
 
 if (nav && navToggle) {
     navToggle.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("is-open");
+        const isOpen = !nav.classList.contains("is-open") && !nav.classList.contains("open");
+        nav.classList.toggle("is-open", isOpen);
+        nav.classList.toggle("open", isOpen);
         document.body.classList.toggle("nav-open", isOpen);
         navToggle.setAttribute("aria-expanded", String(isOpen));
         navToggle.querySelector("i")?.classList.toggle("fa-xmark", isOpen);
@@ -23,6 +25,7 @@ if (nav && navToggle) {
     nav.addEventListener("click", (event) => {
         if (event.target.closest("a")) {
             nav.classList.remove("is-open");
+            nav.classList.remove("open");
             document.body.classList.remove("nav-open");
             navToggle.setAttribute("aria-expanded", "false");
             navToggle.querySelector("i")?.classList.add("fa-bars");

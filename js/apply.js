@@ -6,7 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nav && navToggle) {
         navToggle.addEventListener('click', () => {
-            const isOpen = nav.classList.toggle('open');
+            const isOpen = !nav.classList.contains('open') && !nav.classList.contains('is-open');
+            nav.classList.toggle('open', isOpen);
+            nav.classList.toggle('is-open', isOpen);
+            document.body.classList.toggle('nav-open', isOpen);
             navToggle.setAttribute('aria-expanded', String(isOpen));
             navToggle.querySelector('i')?.classList.toggle('fa-xmark', isOpen);
             navToggle.querySelector('i')?.classList.toggle('fa-bars', !isOpen);
@@ -15,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.addEventListener('click', (event) => {
             if (event.target.closest('a')) {
                 nav.classList.remove('open');
+                nav.classList.remove('is-open');
+                document.body.classList.remove('nav-open');
                 navToggle.setAttribute('aria-expanded', 'false');
                 navToggle.querySelector('i')?.classList.remove('fa-xmark');
                 navToggle.querySelector('i')?.classList.add('fa-bars');

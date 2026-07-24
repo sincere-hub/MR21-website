@@ -9,23 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (toggleBtn && nav) {
     toggleBtn.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+      const isOpen = !nav.classList.contains('open') && !nav.classList.contains('is-open');
+      nav.classList.toggle('open', isOpen);
+      nav.classList.toggle('is-open', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
       toggleBtn.setAttribute('aria-expanded', isOpen);
       toggleBtn.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
   }
 
-  if (window.innerWidth <= 768) {
-    dropdowns.forEach(drop => {
-      const link = drop.querySelector('a');
-      if (link) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          drop.classList.toggle('open');
-        });
-      }
-    });
-  }
+  dropdowns.forEach(drop => drop.classList.remove('open'));
 
   if (header) {
     window.addEventListener('scroll', () => {

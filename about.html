@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/mobile-fixes.css">
+    <link rel="preload" as="image" href="assets/images/heromr21.jpeg" fetchpriority="high">
 </head>
 <body class="mr21-home">
     
@@ -43,6 +45,7 @@
                 <a href="gallery.html">Gallery</a>
                
                 <a href="contact.html">Contact</a>
+                <a class="apply-mobile-btn" href="apply.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Apply Online</a>
             </nav>
 
             <div class="premium-header__actions">
@@ -56,7 +59,7 @@
         <!-- Hero Section -->
         <section class="page-hero-overview">
             <!-- Background video (plays across the whole hero) -->
-            <video class="page-hero__video" autoplay muted loop playsinline poster="assets/videos/VID-20260723-WA0035.mp4">
+            <video class="page-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/images/heromr21.jpeg">
                 <source src="assets/videos/VID-20260723-WA0035.mp4" type="video/mp4">
                 Your browser does not support video playback.
             </video>
@@ -126,7 +129,7 @@
         <div class="container rich-footer__grid">
             <div>
                 <h2>Company</h2>
-                <a href="overview.html">Company Overview</a>
+                <a href="about.html">Company Overview</a>
                 <a href="contact.html">Contact Us</a>
                 <a href="index.html#faq-home-section">FAQ</a>
                 <a href="#">Compliments and Complaints</a>

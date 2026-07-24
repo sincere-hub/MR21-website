@@ -7,24 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Menu Toggle
   if (toggleBtn && nav) {
     toggleBtn.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+      const isOpen = !nav.classList.contains('open') && !nav.classList.contains('is-open');
+      nav.classList.toggle('open', isOpen);
+      nav.classList.toggle('is-open', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
       toggleBtn.setAttribute('aria-expanded', isOpen);
       toggleBtn.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
   }
 
   // 2. Mobile Sub-menu handling (Accordion style for mobile)
-  if (window.innerWidth <= 768) {
-    dropdowns.forEach(drop => {
-      const link = drop.querySelector('a');
-      if (link) {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          drop.classList.toggle('open');
-        });
-      }
-    });
-  }
+  dropdowns.forEach(drop => drop.classList.remove('open'));
 
   // 3. Sticky Header scroll background
   if (header) {

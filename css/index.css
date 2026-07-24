@@ -266,7 +266,7 @@ img { max-width: 100%; display: block; }
 .mr21-hero__image {
   position: absolute;
   inset: 0;
-  background-image: url('/assets/images/heromr21.jpeg'); /* Replace with actual MR21 building */
+  background-image: url('../assets/images/heromr21.jpeg');
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -1018,52 +1018,222 @@ img { max-width: 100%; display: block; }
     background: var(--color-primary);
     flex-direction: column;
     padding: 20px;
-    gap: 15px;
+    gap: 0;
     transform: scaleY(0);
     transform-origin: top;
     transition: var(--transition);
     opacity: 0;
     visibility: hidden;
     border-top: 2px solid var(--color-secondary);
+    max-height: 80vh;
+    overflow-y: auto;
   }
-  .premium-nav.open {
+  .premium-nav.is-open {
     transform: scaleY(1);
     opacity: 1;
     visibility: visible;
+  }
+  .premium-nav a {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: block;
   }
   .nav-dropdown__menu {
     position: static;
     transform: none;
     background: rgba(255,255,255,0.05);
-    margin-top: 10px;
+    margin-top: 0;
     opacity: 1;
     visibility: visible;
     display: none;
     padding: 10px;
+    flex-direction: column;
+    border-radius: 0;
+    box-shadow: none;
   }
-  .nav-dropdown.open .nav-dropdown__menu { display: flex; }
-  .nav-dropdown__menu a { color: rgba(255,255,255,0.8) !important; }
+  .nav-dropdown:hover .nav-dropdown__menu {
+    display: none;
+  }
+  .premium-nav.is-open .nav-dropdown .nav-dropdown__menu {
+    display: flex;
+  }
+  .nav-dropdown__menu a { 
+    color: rgba(255,255,255,0.7) !important;
+    padding: 8px 10px !important;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .nav-dropdown__menu a:hover { background: none; }
   
-  .premium-header__actions .header-link { display: none; }
-  .premium-header__actions .btn--primary { padding: 10px 18px; font-size: 0.8rem; }
+  .premium-header__actions {
+    display: none;
+  }
+  .premium-nav .apply-mobile-btn {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: 12px 16px !important;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: block !important;
+    text-align: center;
+    font-weight: 600;
+    border-bottom: none !important;
+  }
+  .premium-nav .apply-mobile-btn:hover {
+    background: var(--color-secondary-light);
+  }
 
   /* Mobile Hero */
-  .mr21-hero__content h1 { font-size: 2.4rem; }
-  .mr21-hero__grid { padding-top: 120px; }
-  .hero__actions { flex-direction: column; }
-  .btn--large { width: 100%; text-align: center; }
+  .mr21-hero {
+    min-height: auto;
+    padding-top: 80px;
+  }
+  .mr21-hero__content h1 { 
+    font-size: 1.8rem;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  .mr21-hero__content p {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+  .mr21-hero__grid { 
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 30px;
+  }
+  .hero-label {
+    font-size: 0.65rem;
+  }
+  .hero__actions { 
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn--large { 
+    width: 100%; 
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+  .hero-quote-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .hero-quote-card h2 {
+    font-size: 1.3rem;
+  }
+  .hero-quote-card a {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
 
-  /* Mobile Grids */
+  /* Mobile Sections */
+  .home-section { padding: 50px 0; }
+  
+  .section-copy h2 {
+    font-size: 1.5rem;
+  }
+  
+  .section-heading h2 {
+    font-size: 1.5rem;
+  }
+  
   .service-home-grid { grid-template-columns: 1fr; }
   .service-photo { height: 250px; }
+  .service-content h2 {
+    font-size: 1.5rem;
+  }
+  .benefit-cloud span {
+    font-size: 0.8rem;
+    padding: 5px 12px;
+  }
+  
   .faq-home-grid { grid-template-columns: 1fr; }
+  .faq-home-panel {
+    padding: 20px;
+  }
+  
   .action-grid { grid-template-columns: 1fr; }
+  .action-card {
+    padding: 25px;
+  }
+  .action-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .values-layout {
+    grid-template-columns: 1fr;
+  }
+  .values-intro h2 {
+    font-size: 1.5rem;
+  }
+  .value-row {
+    gap: 15px;
+    padding: 20px;
+  }
+  
   .plan-preview-grid { grid-template-columns: 1fr; }
+  .plan-preview {
+    min-width: 100%;
+    width: 100%;
+  }
+  .plans-arrow { display: none; }
+  
   .rich-footer__grid { grid-template-columns: 1fr; }
+  .rich-footer h2 { font-size: 0.9rem; }
   
   .rich-footer__bottom-inner {
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
+  }
+  .rich-footer__brand {
+    font-size: 1.2rem;
+  }
+  
+  .floating-actions {
+    bottom: 20px;
+    right: 20px;
+  }
+  .floating-actions a,
+  .floating-actions button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .mr21-hero__content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .mr21-hero__overlay {
+    background: linear-gradient(90deg, rgba(5, 7, 13, 0.9) 0%, rgba(5, 7, 13, 0.5) 100%);
+  }
+  
+  .section-copy h2,
+  .section-heading h2,
+  .service-content h2,
+  .values-intro h2 {
+    font-size: 1.3rem;
+  }
+  
+  .eyebrow {
+    font-size: 0.65rem;
+  }
+  
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+    gap: 0.4rem;
+  }
+  
+  .premium-nav a {
+    font-size: 0.9rem;
   }
 }

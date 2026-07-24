@@ -226,7 +226,7 @@ ul { list-style: none; }
    ========================================= */
 .page-hero-overview {
   position: relative;
-  min-height: 60vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   background-color: var(--color-primary);
@@ -483,6 +483,11 @@ ul { list-style: none; }
   .nav-dropdown__menu a { color: rgba(255,255,255,0.8) !important; }
   .premium-header__actions .header-link { display: none; }
   .page-hero-content h1 { font-size: 2.5rem; }
+  .page-hero-overview {
+    min-height: 72vh;
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
   .intro-grid { grid-template-columns: 1fr; text-align: center; }
   .rich-footer__grid { grid-template-columns: 1fr; }
   .rich-footer__bottom-inner { flex-direction: column; gap: 20px; text-align: center; }
