@@ -82,13 +82,48 @@ select {
   display: inline-flex;
   width: fit-content;
   padding: 5px 12px;
-  border-radius: 999px;
+  border-radius: 0;
   background: rgba(179, 147, 68, 0.16);
   color: var(--color-secondary-light, #d4af37);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+/* =========================================
+   MOBILE COMPATIBILITY ENHANCEMENTS
+   ========================================= */
+
+/* Touch-friendly button sizing */
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .btn--primary,
+  .btn--glass,
+  .btn--ghost {
+    min-height: 48px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  
+  .floating-actions a,
+  .floating-actions button {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Prevent text overflow on very small screens */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure form elements are usable on mobile */
+input,
+select,
+textarea,
+button {
+  font-size: 16px; /* Prevent iOS zoom on focus */
 }
 
 @media (max-width: 900px) {
@@ -98,8 +133,12 @@ select {
 
   .premium-header,
   .site-header {
-    position: relative;
+    position: absolute;
     z-index: 1000;
+    background: linear-gradient(180deg, rgba(5, 7, 13, 0.7) 0%, transparent 100%);
+  }
+  .premium-header.scrolled,
+  .premium-header.is-scrolled {
     background: var(--color-primary, #05070d);
   }
 
@@ -113,6 +152,13 @@ select {
   .brand-mark small,
   .brand-mark em {
     color: var(--color-white, #fff) !important;
+  }
+
+  .premium-logo img,
+  .brand-mark img {
+    width: 220px !important;
+    height: 110px !important;
+    object-fit: contain;
   }
 
   .premium-header__actions,
@@ -224,12 +270,18 @@ select {
     width: 100%;
     margin-top: 12px;
     padding: 13px 16px !important;
-    border: 0 !important;
-    border-radius: 8px;
-    background: var(--color-secondary, #b39344);
-    color: var(--color-white, #fff) !important;
+    border: 2px solid var(--color-secondary, #b39344) !important;
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-secondary, #b39344) !important;
     font-weight: 700;
     text-align: center;
+  }
+  
+  .premium-nav .apply-mobile-btn:hover,
+  .primary-nav .apply-mobile-btn:hover {
+    background: var(--color-secondary, #b39344);
+    color: var(--color-white, #fff) !important;
   }
 
   .mr21-hero,
@@ -256,8 +308,13 @@ select {
     min-height: 100%;
   }
 
-  .mr21-hero {
-    min-height: 100svh !important;
+  .mr21-hero__image {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  .mr21-hero__overlay {
+    background: linear-gradient(90deg, rgba(5, 7, 13, 0.85) 0%, rgba(5, 7, 13, 0.4) 100%) !important;
   }
 
   .mr21-hero__grid,
@@ -317,10 +374,13 @@ select {
     width: 100%;
   }
 
-  .hero__actions .btn,
   .form-actions .btn,
   .application-form .btn {
     width: 100%;
+  }
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 320px;
   }
 
   .hero-quote-card,
@@ -331,7 +391,7 @@ select {
   .claims-contact-panel,
   .application-form,
   .stepper-panel {
-    border-radius: 8px !important;
+    border-radius: 0 !important;
   }
 
   .compare-table {
@@ -351,6 +411,24 @@ select {
     right: 14px !important;
     bottom: 14px !important;
   }
+  
+  /* Ensure cards stack properly on mobile */
+  .plan-preview-grid {
+    margin: 0 !important;
+  }
+  
+  .plan-preview {
+    min-width: 260px !important;
+  }
+  
+  /* Improve spacing on mobile */
+  .home-section {
+    padding: 40px 0 !important;
+  }
+  
+  .section-heading {
+    margin-bottom: 30px !important;
+  }
 }
 
 @media (max-width: 520px) {
@@ -368,6 +446,12 @@ select {
   .brand-mark small,
   .brand-mark em {
     letter-spacing: 1.2px !important;
+  }
+
+  .premium-logo img,
+  .brand-mark img {
+    width: 220px !important;
+    height: 110px !important;
   }
 
   .btn,
@@ -404,4 +488,38 @@ select {
     gap: 12px;
     text-align: center;
   }
+  
+  /* Improve hero button layout on very small screens */
+  .hero__actions {
+    gap: 10px;
+  }
+  
+  .hero__actions .btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Ensure images don't overflow */
+  .service-photo {
+    height: 200px !important;
+  }
+  
+  /* Tighten up gallery items */
+  .gallery-masonry {
+    gap: 12px !important;
+  }
+  
+  .gallery-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    min-height: 200px;
+  }
+}
+
+/* =========================================
+   FLOATING BUTTONS - Round shape
+   ========================================= */
+.floating-actions a, 
+.floating-actions button {
+  border-radius: 50% !important;
 }
