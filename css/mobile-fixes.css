@@ -523,3 +523,16 @@ button {
 .floating-actions button {
   border-radius: 50% !important;
 }
+
+/* =========================================
+   VIDEO HERO - Black background before load
+   ========================================= */
+.page-hero-overview,
+.plans-hero {
+  background-color: #05070d !important;
+}
+
+.page-hero__video,
+.plans-hero__video {
+  background-color: #05070d;
+}
