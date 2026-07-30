@@ -1088,7 +1088,7 @@ img { max-width: 100%; display: block; }
   /* Mobile Hero */
   .mr21-hero {
     min-height: auto;
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 60px;
   }
   .mr21-hero__image {
@@ -1103,7 +1103,7 @@ img { max-width: 100%; display: block; }
     font-size: 2rem;
     line-height: 1.15;
     word-break: break-word;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   .mr21-hero__content p {
     font-size: 1rem;
@@ -1111,7 +1111,7 @@ img { max-width: 100%; display: block; }
     margin-bottom: 25px;
   }
   .mr21-hero__grid { 
-    padding-top: 60px;
+    padding-top: 80px;
     padding-bottom: 0;
     gap: 20px;
   }
