@@ -8,7 +8,7 @@
     <title>MR21 Funerals & Insurance | Reliable Funeral Insurance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/mobile-fixes.css">
@@ -54,6 +54,7 @@
     </header>
 
     <main id="main">
+        <!-- ============ HERO SECTION ============ -->
         <section class="mr21-hero">
             <div class="mr21-hero__image" role="img" aria-label="MR21 Funerals and Insurance branch building"></div>
             <div class="mr21-hero__overlay"></div>
@@ -78,26 +79,53 @@
             </div>
         </section>
 
-       
-
-        <section class="home-section intro-section">
-            <div class="container intro-grid">
-                <div class="section-copy reveal">
-                    <p class="eyebrow">Who We Are</p>
-                    <h2>MR21 Funerals & Insurance is a division of MR21 Burial Society and Funeral Services (Pty) Ltd.</h2>
-                    <p>Registration number 2018/063193/07. MR21 serves families with funeral cover and funeral services designed around dignity, affordability and practical support.</p>
-                    <p>We understand that every family is different. Our role is to help clients feel at ease with the planning and execution of the actual funeral event, regardless of financial status.</p>
+        <!-- ============ ABOUT / INTRO PREVIEW ============ -->
+        <section class="home-section about-preview-section">
+            <div class="container about-preview-grid">
+                <div class="about-preview-media reveal">
+                    <div class="about-preview-media__frame">
+                        <img src="assets/images/who.jpeg" alt="MR21 team providing funeral and insurance support" loading="lazy">
+                    </div>
+                    <div class="about-preview-badge reveal">
+                        <strong>2018</strong>
+                        <span>Proudly Serving<br>Families</span>
+                    </div>
                 </div>
-                <div class="intro-image reveal">
-                    <img src="assets/images/who.jpeg" alt="MR21 team providing funeral and insurance support">
+                <div class="about-preview-content reveal">
+                    <p class="eyebrow">Who We Are</p>
+                    <h2>A trusted name in <em class="gold-italic">dignified</em> funeral cover.</h2>
+                    <p class="about-preview-lead">MR21 Funerals & Insurance is a division of MR21 Burial Society and Funeral Services (Pty) Ltd. Registration number 2018/063193/07.</p>
+                    <p>We serve families with funeral cover and funeral services designed around dignity, affordability and practical support. Our role is to help clients feel at ease with the planning and execution of the actual funeral event, regardless of financial status.</p>
+                    <ul class="about-preview-points">
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Registered and trusted funeral service provider</li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Dignified service for every family, every budget</li>
+                        <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Practical support through life's sensitive moments</li>
+                    </ul>
+                    <div class="about-preview-stats">
+                        <div class="stat-item">
+                            <strong data-stat>100%</strong>
+                            <span>Family Focused</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>4</strong>
+                            <span>Funeral Plans</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>24/7</strong>
+                            <span>Claims Support</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="home-section plans-preview">
+        <!-- ============ PLANS PREVIEW - DARK SECTION ============ -->
+        <section class="home-section plans-preview-section">
+            <div class="plans-preview-bg" aria-hidden="true"></div>
+            <div class="plans-preview-overlay" aria-hidden="true"></div>
             <div class="container section-heading reveal">
                 <p class="eyebrow">Funeral Cover</p>
-                <h2>Choose cover that protects your family from additional expenses.</h2>
+                <h2>Choose cover that protects your family from <em class="gold-italic">additional expenses</em>.</h2>
                 <p>Each plan combines funeral insurance cover with practical service benefits. View the full plan page for detailed premiums, age bands and benefits.</p>
             </div>
 
@@ -107,24 +135,57 @@
                 </button>
                 <div class="plan-preview-grid">
                     <article class="plan-preview reveal">
-                        <div><span>Basic Funeral Plan</span><strong>R10 000</strong><p>Main member, spouse and children 14-21 cover.</p></div>
-                        <ul><li>Monthly premium R100</li><li>Member only R80</li><li>50 programmes and chairs</li></ul>
-                        <a href="plans.html#basic">Read More</a>
+                        <div class="plan-preview__head">
+                            <span>Basic Funeral Plan</span>
+                            <div class="plan-preview__price"><strong>R10 000</strong><small>Cover amount</small></div>
+                            <p>Main member, spouse and children 14-21 cover.</p>
+                        </div>
+                        <ul>
+                            <li>Monthly premium R100</li>
+                            <li>Member only R80</li>
+                            <li>50 programmes and chairs</li>
+                        </ul>
+                        <a class="plan-preview__link" href="plans.html#basic">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="plan-preview plan-preview--featured reveal">
-                        <div><span>Executive Funeral Plan</span><strong>R20 000</strong><p>Balanced family cover with enhanced funeral support.</p></div>
-                        <ul><li>Monthly premium R150</li><li>Member only R120</li><li>Hearse and family car</li></ul>
-                        <a href="plans.html#executive">Read More</a>
+                        <span class="plan-preview__badge"><i class="fa-solid fa-star" aria-hidden="true"></i> Most Popular</span>
+                        <div class="plan-preview__head">
+                            <span>Executive Funeral Plan</span>
+                            <div class="plan-preview__price"><strong>R20 000</strong><small>Cover amount</small></div>
+                            <p>Balanced family cover with enhanced funeral support.</p>
+                        </div>
+                        <ul>
+                            <li>Monthly premium R150</li>
+                            <li>Member only R120</li>
+                            <li>Hearse and family car</li>
+                        </ul>
+                        <a class="plan-preview__link" href="plans.html#executive">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="plan-preview reveal">
-                        <div><span>Royalty Funeral Plan</span><strong>R30 000</strong><p>Premium ceremony benefits and extended family cover.</p></div>
-                        <ul><li>Monthly premium R200</li><li>Member only R150</li><li>Music system and decor</li></ul>
-                        <a href="plans.html#royalty">Read More</a>
+                        <div class="plan-preview__head">
+                            <span>Royalty Funeral Plan</span>
+                            <div class="plan-preview__price"><strong>R30 000</strong><small>Cover amount</small></div>
+                            <p>Premium ceremony benefits and extended family cover.</p>
+                        </div>
+                        <ul>
+                            <li>Monthly premium R200</li>
+                            <li>Member only R150</li>
+                            <li>Music system and decor</li>
+                        </ul>
+                        <a class="plan-preview__link" href="plans.html#royalty">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                     <article class="plan-preview reveal">
-                        <div><span>Kingship Funeral Plan</span><strong>R60 000</strong><p>Maximum protection with extensive service benefits.</p></div>
-                        <ul><li>Monthly premium R400</li><li>Member only R300</li><li>250 programmes and chairs</li></ul>
-                        <a href="plans.html#kingship">Read More</a>
+                        <div class="plan-preview__head">
+                            <span>Kingship Funeral Plan</span>
+                            <div class="plan-preview__price"><strong>R60 000</strong><small>Cover amount</small></div>
+                            <p>Maximum protection with extensive service benefits.</p>
+                        </div>
+                        <ul>
+                            <li>Monthly premium R400</li>
+                            <li>Member only R300</li>
+                            <li>250 programmes and chairs</li>
+                        </ul>
+                        <a class="plan-preview__link" href="plans.html#kingship">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </article>
                 </div>
                 <button class="plans-arrow plans-arrow--next" type="button" aria-label="Next plan">
@@ -133,30 +194,47 @@
             </div>
         </section>
 
+        <!-- ============ VALUES SECTION - IMAGE BACKGROUND ============ -->
         <section class="home-section values-section">
+            <div class="values-bg" aria-hidden="true"></div>
+            <div class="values-overlay" aria-hidden="true"></div>
             <div class="container values-layout">
                 <div class="values-intro reveal">
                     <p class="eyebrow">Our Values</p>
-                    <h2>Service that is exclusive, excellent and dignified.</h2>
+                    <h2>Service that is <em class="gold-italic">exclusive, excellent</em> and dignified.</h2>
                     <p>MR21 believes clients should receive real value for their money and respectful assistance through one of life's most sensitive moments.</p>
+                    <a class="values-link" href="about.html">Learn more about MR21 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <div class="values-list">
                     <article class="value-row reveal">
-                        <span>01</span>
-                        <div><h3>Exclusiveness</h3><p>MR21 is exclusive in its nature. We are a burial society which also offers funeral services, including support around the burial service and post-funeral psychological care.</p></div>
+                        <span class="value-row__icon"><i class="fa-solid fa-crown" aria-hidden="true"></i></span>
+                        <div class="value-row__body">
+                            <h3>Exclusiveness</h3>
+                            <p>MR21 is exclusive in its nature. We are a burial society which also offers funeral services, including support around the burial service and post-funeral psychological care.</p>
+                        </div>
+                        <span class="value-row__num">01</span>
                     </article>
                     <article class="value-row reveal">
-                        <span>02</span>
-                        <div><h3>Dignified Treatment</h3><p>Whoever joins MR21, regardless of background, should be serviced exclusively and in a dignified manner.</p></div>
+                        <span class="value-row__icon"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
+                        <div class="value-row__body">
+                            <h3>Dignified Treatment</h3>
+                            <p>Whoever joins MR21, regardless of background, should be serviced exclusively and in a dignified manner.</p>
+                        </div>
+                        <span class="value-row__num">02</span>
                     </article>
                     <article class="value-row reveal">
-                        <span>03</span>
-                        <div><h3>Excellence in Service Rendition</h3><p>We believe there should be value for one's money. We commit ourselves to proving clients made the right choice by choosing MR21.</p></div>
+                        <span class="value-row__icon"><i class="fa-solid fa-medal" aria-hidden="true"></i></span>
+                        <div class="value-row__body">
+                            <h3>Excellence in Service Rendition</h3>
+                            <p>We believe there should be value for one's money. We commit ourselves to proving clients made the right choice by choosing MR21.</p>
+                        </div>
+                        <span class="value-row__num">03</span>
                     </article>
                 </div>
             </div>
         </section>
 
+        <!-- ============ SERVICE SECTION ============ -->
         <section class="home-section service-section">
             <div class="container service-home-grid">
                 <div class="service-photo reveal" aria-label="MR21 service photo slideshow">
@@ -166,23 +244,38 @@
                         <img class="service-slide" src="assets/images/service3.png" alt="Professional MR21 funeral planning crew" loading="lazy">
                         <img class="service-slide" src="assets/images/service4.png" alt="Customer care support at MR21" loading="lazy">
                     </div>
+                    <div class="service-photo__caption">
+                        <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+                        <p>Compassionate care from planning to the final goodbye.</p>
+                    </div>
                 </div>
                 <div class="service-content reveal">
                     <p class="eyebrow">Funeral Services</p>
                     <h2>Practical support for the ceremony, not just the policy.</h2>
                     <p>Selected MR21 plans include benefits such as repatriation, storage, coffin, coffin spray, tents, chairs, programmes, hearse, family cars, memorial decor, music system, airtime support and more.</p>
                     <div class="benefit-cloud">
-                        <span>Repatriation</span><span>Storage</span><span>Coffin</span><span>Home Tent</span><span>Hearse</span><span>Programmes</span><span>Chairs</span><span>Memorial Decor</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Repatriation</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Storage</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Coffin</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Home Tent</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Hearse</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Programmes</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Chairs</span>
+                        <span><i class="fa-solid fa-check" aria-hidden="true"></i> Memorial Decor</span>
                     </div>
+                    <a class="btn btn--primary" href="gallery.html">View Our Gallery</a>
                 </div>
             </div>
         </section>
 
+        <!-- ============ FAQ SECTION - IMAGE BACKGROUND ============ -->
         <section class="home-section faq-home-section" id="faq-home-section">
+            <div class="faq-bg" aria-hidden="true"></div>
+            <div class="faq-overlay" aria-hidden="true"></div>
             <div class="container faq-home-wrap">
                 <div class="section-heading reveal">
                     <p class="eyebrow">Frequently Asked Questions</p>
-                    <h2>Helpful answers for families planning ahead.</h2>
+                    <h2>Helpful answers for families <em class="gold-italic">planning ahead</em>.</h2>
                     <p>Find the most common guidance about cover, claims support and the steps to get started.</p>
                 </div>
                 <div class="faq-home-grid">
@@ -210,7 +303,8 @@
                             </details>
                         </div>
                     </div>
-                    <div class="faq-home-panel reveal">
+                    <div class="faq-home-panel faq-cta-panel reveal">
+                        <span class="faq-cta-panel__icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
                         <p class="eyebrow">Need support now?</p>
                         <h3>Speak with MR21 before you choose a plan.</h3>
                         <p>Our team can guide you through cover options, premium details and the documents you may need for the next step.</p>
@@ -220,25 +314,28 @@
             </div>
         </section>
 
+        <!-- ============ ACTION SECTION - DARK ============ -->
         <section class="home-section action-section-v2">
+            <div class="action-bg" aria-hidden="true"></div>
+            <div class="action-overlay" aria-hidden="true"></div>
             <div class="container action-grid">
                 <article class="action-card reveal">
-                    <i class="fa-solid fa-keyboard" aria-hidden="true"></i>
+                    <span class="action-card__icon"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></span>
                     <h3>Apply Online</h3>
                     <p>Start your funeral cover application and let an MR21 consultant guide the next step.</p>
-                    <a href="apply.html">Start Application</a>
+                    <a class="action-card__link" href="apply.html">Start Application <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
                 <article class="action-card reveal">
-                    <i class="fa-solid fa-file-circle-check" aria-hidden="true"></i>
+                    <span class="action-card__icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></span>
                     <h3>Claims Support</h3>
                     <p>Prepare policy details, ID documents and supporting claim documents for a smoother process.</p>
-                    <a href="contact.html#claims-section">View Claims Support</a>
+                    <a class="action-card__link" href="contact.html#claims-section">View Claims Support <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
                 <article class="action-card reveal">
-                    <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                    <span class="action-card__icon"><i class="fa-solid fa-gift" aria-hidden="true"></i></span>
                     <h3>Rewards</h3>
                     <p>Explore member support tools, reminders and future MR21 rewards.</p>
-                    <a href="rewards.html">View Rewards</a>
+                    <a class="action-card__link" href="rewards.html">View Rewards <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
             </div>
         </section>

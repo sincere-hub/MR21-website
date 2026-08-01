@@ -133,7 +133,7 @@ button {
 
   .premium-header,
   .site-header {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     background: linear-gradient(180deg, rgba(5, 7, 13, 0.7) 0%, transparent 100%);
   }
@@ -328,6 +328,7 @@ button {
 
   .mr21-hero__grid,
   .intro-grid,
+  .about-preview-grid,
   .values-layout,
   .service-home-grid,
   .faq-home-grid,
@@ -362,6 +363,7 @@ button {
   .section-heading h2,
   .values-intro h2,
   .service-content h2,
+  .about-preview-content h2,
   .map-intro h2,
   .claims-contact-panel h2 {
     font-size: clamp(1.45rem, 7vw, 2rem) !important;
@@ -392,6 +394,48 @@ button {
   .application-form,
   .stepper-panel {
     border-radius: 0 !important;
+  }
+
+  .about-preview-media {
+    padding-right: 0 !important;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-preview-media__frame img {
+    height: 320px !important;
+  }
+
+  .about-preview-badge {
+    left: 10px !important;
+    bottom: 20px !important;
+  }
+
+  .about-preview-content {
+    text-align: center;
+  }
+
+  .about-preview-content .eyebrow::before {
+    display: none;
+  }
+
+  .about-preview-lead {
+    text-align: left;
+  }
+
+  .about-preview-points {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .about-preview-stats {
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    min-width: 90px;
+    flex: 1 1 90px;
   }
 
   .compare-table {
@@ -502,6 +546,35 @@ button {
   /* Ensure images don't overflow */
   .service-photo {
     height: 200px !important;
+  }
+  
+  .about-preview-media__frame img {
+    height: 260px !important;
+  }
+  
+  .about-preview-badge {
+    padding: 12px 14px !important;
+    min-width: 90px !important;
+  }
+  
+  .about-preview-badge strong {
+    font-size: 1.2rem !important;
+  }
+  
+  .about-preview-badge span {
+    font-size: 0.58rem !important;
+  }
+  
+  .stat-item {
+    padding: 12px 8px !important;
+  }
+  
+  .stat-item strong {
+    font-size: 1.1rem !important;
+  }
+  
+  .stat-item span {
+    font-size: 0.62rem !important;
   }
   
   /* Tighten up gallery items */
