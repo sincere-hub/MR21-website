@@ -16,53 +16,28 @@
  
     <link rel="stylesheet" href="css/apply.css">
     <link rel="stylesheet" href="css/mobile-fixes.css">
+    <link rel="stylesheet" href="css/elevate.css">
     <link rel="preload" as="image" href="assets/images/heromr21.jpeg" fetchpriority="high">
 </head>
 <body>
   
 
-    <!-- ==========================================
-         CLASSIC HEADER 
-    ========================================== -->
-    <header class="site-header site-header--classic" data-header>
-        <!-- Social Strip -->
-     
+    <header class="premium-header" data-header>
+        <div class="container premium-header__inner">
+            <a class="premium-logo" href="index.html" aria-label="MR21 Funerals and Insurance home">
+                <img src="assets/images/who-logo.png" alt="MR21 Funerals and Insurance">
+            </a>
 
-        <!-- Brand Bar -->
-        <div class="brand-bar">
-            <div class="container brand-bar__inner">
-                <a class="brand-mark" href="index.html">
-                    <img src="assets/images/who-logo.png" alt="MR21 Funerals and Insurance">
-                </a>
-                <a class="header-contact" href="mailto:info@mr21.co.za">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>
-                        <strong>info@mr21.co.za</strong>
-                        <small>Send us an Email</small>
-                    </span>
-                </a>
-                <a class="header-contact" href="tel:+27151510251">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>
-                        <strong>015 151 0251/2</strong>
-                        <small>Give us a call</small>
-                    </span>
-                </a>
-                <a class="btn btn--primary header-apply active" href="apply.html">Apply Now Online</a>
-                <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
-                    <i class="fa-solid fa-bars"></i>
-                    <span class="sr-only">Open menu</span>
-                </button>
-            </div>
-        </div>
+            <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Open menu</span>
+            </button>
 
-        <!-- Navigation Bar -->
-        <div class="menu-bar">
-            <nav class="container primary-nav" id="primary-navigation" data-nav>
+            <nav class="premium-nav" id="primary-navigation" data-nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About Us</a>
                 <div class="nav-dropdown">
-                    <a href="plans.html">Plans <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="plans.html">Plans <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
                     <div class="nav-dropdown__menu">
                         <a href="plans.html#basic">Basic Funeral Plan</a>
                         <a href="plans.html#executive">Executive Funeral Plan</a>
@@ -71,11 +46,13 @@
                     </div>
                 </div>
                 <a href="gallery.html">Gallery</a>
-                
-                <a href="contact.html">Contact Us</a>
-                <a class="apply-mobile-btn active" href="apply.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Apply Now Online</a>
-             
+                <a href="contact.html">Contact</a>
+                <a class="apply-mobile-btn active" href="apply.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Apply Online</a>
             </nav>
+
+            <div class="premium-header__actions">
+                <a class="btn btn--primary active" href="apply.html">Apply Online</a>
+            </div>
         </div>
     </header>
 
@@ -239,17 +216,59 @@
         </section>
     </main>
 
-    <!-- ==========================================
-         FOOTER
-    ========================================== -->
-    <footer class="site-footer">
-        <div class="container footer-bottom">
-            <p>&copy; 2026 MR21 Funerals & Insurance.</p>
-            <a href="contact.html">Contact Us</a>
+    <footer class="rich-footer">
+        <div class="container rich-footer__grid">
+            <div>
+                <h2>Company</h2>
+                <a href="about.html">Company Overview</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="index.html#faq-home-section">FAQ</a>
+                <a href="#">Compliments and Complaints</a>
+                <a href="#">Terms and Conditions</a>
+            </div>
+            <div>
+                <h2>Corporate Info</h2>
+                <a href="plans.html#basic">Basic Funeral Plan</a>
+                <a href="plans.html#executive">Executive Funeral Plan</a>
+                <a href="plans.html#royalty">Royalty Funeral Plan</a>
+                <a href="plans.html#kingship">Kingship Funeral Plan</a>
+                <a href="apply.html">Apply Online</a>
+                <a href="contact.html#claims-section">Submit a Claim</a>
+            </div>
+            <div>
+                <h2>Get In Touch</h2>
+                <p>Plot 1A, Tshikhudini Village, Phunda Maria Road Next to Nanga Filling Station Thohoyandou, 0950</p>
+                <a href="tel:+27151510251">015 151 0251/2</a>
+                <a href="tel:+27615090775">061 509 0775</a>
+                <p>Mon - Fri: 8am to 5pm<br>Sat: 8am to 1pm<br>Sun: Closed</p>
+            </div>
+            <div>
+                <h2>Newsletter</h2>
+                <p>Receive resources and tools that can help you prepare for the future.</p>
+                <form class="rich-newsletter">
+                    <label><span class="sr-only">Email address</span><input type="email" placeholder="Your mail here"></label>
+                    <button type="submit"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+        <div class="rich-footer__bottom">
+            <div class="container rich-footer__bottom-inner">
+                <p>&copy; 2026 MR21. All Rights Reserved.</p>
+                <div class="rich-footer__brand">MR<strong>21</strong><span>True Respect.</span></div>
+                <div class="rich-social">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- JS -->
+    <div class="floating-actions" aria-label="Quick actions">
+        <a href="https://wa.me/27151510251" aria-label="WhatsApp MR21"><i class="fa-brands fa-whatsapp"></i></a>
+        <button type="button" data-back-top aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+
     <script src="js/apply.js"></script>
 </body>
 </html>

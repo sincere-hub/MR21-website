@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
+    /* --- Header scroll state (glass background) --- */
+    const header = document.querySelector('[data-header]');
+    const setHeaderState = () => {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > 20);
+    };
+    setHeaderState();
+    window.addEventListener('scroll', setHeaderState, { passive: true });
+
+    /* --- Back to top --- */
+    document.querySelector('[data-back-top]')?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     /* --- Existing Header/Nav Code --- */
     const nav = document.querySelector('[data-nav]');
     const navToggle = document.querySelector('[data-nav-toggle]');
@@ -55,6 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
         el.dataset.original = el.textContent;
     });
 
+    // Progress bar reflecting required-field completion
+    const progressBar = document.querySelector('[data-progress-bar]');
+    const updateProgress = () => {
+        if (!progressBar) return;
+        const requiredFields = [...form.querySelectorAll('[required]')];
+        const complete = requiredFields.filter((field) => field.value.trim() && field.checkValidity()).length;
+        const percentage = requiredFields.length ? (complete / requiredFields.length) * 100 : 0;
+        progressBar.style.width = `${percentage}%`;
+    };
+    form.addEventListener('input', updateProgress);
+    updateProgress();
+
     // Live formatting / masking for ID Number
     const idInput = document.querySelector('#id_passport');
     if(idInput) {
@@ -107,7 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
             statusMsg.textContent = '✅ Application sent! An MR21 consultant will call you within 24 hours.';
             statusMsg.className = 'form-status success';
             form.reset();
-            
+            updateProgress();
+
             // Optional: Submit actual data to a backend here using fetch()
         } else {
             statusMsg.textContent = '⚠️ Please fix the highlighted fields above.';

@@ -1,0 +1,192 @@
+/* =========================================
+   MR21 ELEVATION LAYER
+   Shared refinements loaded after each page's
+   own stylesheet. Adds the crest motif, richer
+   gold, glass header and motion polish site-wide
+   without touching page-specific layout rules.
+   ========================================= */
+
+:root {
+  --gold-grad: linear-gradient(135deg, #f0d375 0%, #d4af37 45%, #a3822f 100%);
+  --gold-grad-soft: linear-gradient(135deg, rgba(240, 211, 117, 0.16), rgba(163, 130, 47, 0.05));
+  --navy-deep: #070b16;
+  --navy-glass: rgba(7, 10, 20, 0.72);
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ring-gold: 0 0 0 3px rgba(212, 175, 55, 0.35);
+}
+
+/* ---------- Motion & accessibility base ---------- */
+::selection {
+  background: #d4af37;
+  color: #0b0d12;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-gold);
+  border-radius: 2px;
+}
+
+.reveal {
+  transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; }
+}
+
+/* ---------- Crest motif: diamond + line eyebrow ---------- */
+.eyebrow {
+  display: inline-flex !important;
+  align-items: center;
+  position: relative;
+  padding-left: 34px;
+}
+
+.eyebrow::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 14px;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  margin: 0 !important;
+  background: var(--gold-grad);
+  transform: translateY(-50%);
+}
+
+.eyebrow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  background: var(--gold-grad);
+  transform: translate(0, -50%) rotate(45deg);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.55);
+}
+
+/* ---------- Glass header on scroll ---------- */
+.premium-header,
+.site-header {
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.premium-header.is-scrolled,
+.premium-header.scrolled,
+.site-header.is-scrolled,
+.site-header.scrolled {
+  background: var(--navy-glass) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+/* ---------- Button shimmer + lift ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.45s var(--ease-premium), box-shadow 0.45s var(--ease-premium), background 0.45s var(--ease-premium);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-premium);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn:hover::after {
+  left: 130%;
+}
+
+.btn--primary,
+.btn--primary:hover {
+  background: var(--gold-grad) !important;
+  border-color: transparent !important;
+  color: var(--navy-deep) !important;
+}
+
+.btn--primary:hover {
+  filter: brightness(1.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Card lift polish (shared class patterns) ---------- */
+.plan-preview,
+.value-row,
+.action-card,
+.product-card,
+.faq-home-panel,
+.about-preview-media__frame,
+.stat-item {
+  transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), border-color 0.5s var(--ease-premium);
+}
+
+.plan-preview:hover,
+.action-card:hover,
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(5, 7, 13, 0.35);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.value-row:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* ---------- Section divider motif ---------- */
+.crest-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.crest-divider::before,
+.crest-divider::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6));
+}
+
+.crest-divider::after {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.6), transparent);
+}
+
+.crest-divider span {
+  width: 7px;
+  height: 7px;
+  background: var(--gold-grad);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.55);
+  flex: none;
+}
+
+/* ---------- Scrollbar polish (webkit) ---------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b0d12; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #8a6d28);
+  border-radius: 6px;
+}
