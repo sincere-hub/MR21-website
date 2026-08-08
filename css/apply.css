@@ -3,7 +3,7 @@
    ========================================= */
 :root {
   /* Brand Colors */
-  --color-primary: #05070d;        /* Near-black navy */
+  --color-primary: #0B347F;        /* Deep royal blue (was near-black navy) */
   --color-secondary: #b39344;      /* Mustard gold */
   --color-secondary-light: #d4af37;
   --color-white: #ffffff;
@@ -33,7 +33,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--color-bg);
+  background-color: #ffffff;
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -266,7 +266,7 @@ ul { list-style: none; }
    ========================================= */
 .page-hero {
   background: radial-gradient(circle at 15% 20%, rgba(179,147,68,0.16), transparent 45%), var(--color-primary);
-  padding: 170px 0 90px;
+  padding: 50px 0 90px;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }

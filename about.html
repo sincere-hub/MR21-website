@@ -14,44 +14,50 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/mobile-fixes.css">
     <link rel="stylesheet" href="css/elevate.css">
+    <link rel="stylesheet" href="css/shared.css">
     <link rel="preload" as="image" href="assets/images/heromr21.jpeg" fetchpriority="high">
 </head>
 <body class="mr21-home">
-    
 
-    <header class="premium-header" data-header>
-        <div class="container premium-header__inner">
-            <a class="premium-logo" href="index.html" aria-label="MR21 Funerals and Insurance home">
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <span><i class="fa-solid fa-phone" aria-hidden="true"></i> Call us: <a href="tel:+27151510251">015 151 0251/2</a> &nbsp;|&nbsp; <a href="tel:+27615090775">061 509 0775</a></span>
+    </div>
+
+    <!-- HEADER (same as index) -->
+    <header class="header">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo" aria-label="MR21 Funerals and Insurance home">
                 <img src="assets/images/who-logo.png" alt="MR21 Funerals and Insurance">
             </a>
-
-            <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                <span class="sr-only">Open menu</span>
-            </button>
-
-            <nav class="premium-nav" id="primary-navigation" data-nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <div class="nav-dropdown">
-                    <a href="plans.html">Plans <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
-                    <div class="nav-dropdown__menu">
-                        <a href="plans.html#basic">Basic Funeral Plan</a>
-                        <a href="plans.html#executive">Executive Funeral Plan</a>
-                        <a href="plans.html#royalty">Royalty Funeral Plan</a>
-                        <a href="plans.html#kingship">Kingship Funeral Plan</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="about.html">About <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About MR21</a>
+                        <a href="articles.html">Articles</a>
+                        <a href="csi.html">CSI</a>
                     </div>
-                </div>
-                <a href="gallery.html">Gallery</a>
-               
-                <a href="contact.html">Contact</a>
-                <a class="apply-mobile-btn" href="apply.html"><i class="fa-solid fa-file-signature" aria-hidden="true"></i> Apply Online</a>
-            </nav>
-
-            <div class="premium-header__actions">
-                
-                <a class="btn btn--primary" href="apply.html">Apply Online</a>
-            </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="plans.html">Burial Plans <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="plans.html">Family Plan</a>
+                        <a href="policy.html">Family Policy</a>
+                    </div>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="gallery.html">Gallery <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="gallery.html">Images</a>
+                        <a href="gallery.html">Videos</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+          
+            <a href="apply.html" class="btn btn-gold">Apply Online</a>
         </div>
     </header>
 
@@ -152,18 +158,17 @@
                 <p>Mon - Fri: 8am to 5pm<br>Sat: 8am to 1pm<br>Sun: Closed</p>
             </div>
             <div>
-                <h2>Newsletter</h2>
-                <p>Receive resources and tools that can help you prepare for the future.</p>
-                <form class="rich-newsletter">
-                    <label><span class="sr-only">Email address</span><input type="email" placeholder="Your mail here"></label>
-                    <button type="submit"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Subscribe Now</button>
-                </form>
+                <h2>FSP &amp; Underwriter</h2>
+                <img class="rich-footer__underwriter-logo" src="assets/images/rma__logo.jpg" alt="Rand Mutual logo">
+                <p>MR21 is an authorised Financial Services Provider (<strong>FSP 55749</strong>).</p>
+                <p>Underwritten by Rand Mutual Assurance.</p>
+                <a href="https://www.randmutual.co.za" target="_blank" rel="noopener">Visit Rand Mutual</a>
             </div>
         </div>
         <div class="rich-footer__bottom">
             <div class="container rich-footer__bottom-inner">
                 <p>&copy; 2026 MR21. All Rights Reserved.</p>
-                <div class="rich-footer__brand">MR<strong>21</strong><span>True Respect.</span></div>
+                <img class="rich-footer__logo" src="assets/images/who-logo.png" alt="MR21 Funerals & Insurance">
                 <div class="rich-social">
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>

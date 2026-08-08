@@ -1,0 +1,457 @@
+/* ==========================================================
+   SHARED HEADER + FOOTER — UNIFIED MR21 (BLUE THEME)
+   Load this stylesheet LAST on every page so the shared
+   announcement bar, header and footer render identically
+   site-wide and always use blue instead of black.
+   ========================================================== */
+
+:root {
+  --color-black: #0B347F;        /* Black replaced by deep royal blue */
+  --color-card-bg: #061B43;      /* Dark blue (replaces #111111)     */
+  --color-gold: #D4AF37;
+  --color-gold-hover: #B59326;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F8F9FA;
+  --color-border: #E5E7EB;
+  --color-blue: #0B347F;
+  --color-darkblue: #061B43;
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  color: var(--color-blue);
+}
+
+/* ---------- ANNOUNCEMENT BAR (blue) ---------- */
+.announcement-bar {
+  background-color: var(--color-blue);
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+}
+.announcement-bar a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+}
+.announcement-bar i {
+  margin-right: 5px;
+}
+
+/* ---------- HEADER (matches index) ---------- */
+.header {
+  background: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.nav-wrapper > .btn {
+  flex-shrink: 0;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand-logo img {
+  width: 200px;
+  height: 84px;
+  object-fit: contain;
+  background: var(--color-white);
+  display: block;
+}
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+.brand-text h2 {
+  font-size: 1.35rem;
+  color: var(--color-blue);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.brand-text span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-blue);
+}
+
+/* Phone link in header */
+.header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-blue);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.header-phone i {
+  color: var(--color-gold);
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li {
+  white-space: nowrap;
+}
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 2px 10px;
+  transition: color 0.3s ease, letter-spacing 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--color-gold);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+  transform: translateY(-1px);
+}
+/* Current page state (used across pages, e.g. plans.html) */
+.nav-links a.active {
+  color: var(--color-gold);
+  font-weight: 800;
+}
+.nav-links a.active::after {
+  width: 100%;
+  left: 0;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+.nav-links a.active::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Gold dot + underline on hover (matches the index header) */
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-hover));
+  transition: width 0.35s ease, left 0.35s ease;
+}
+.nav-links a:hover::before {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-links .nav-dropdown {
+  position: relative;
+}
+/* Dropdown chevron rotation */
+.nav-links .nav-dropdown > a i {
+  font-size: 0.6rem;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+.nav-links .nav-dropdown:hover > a i {
+  transform: rotate(180deg);
+}
+.nav-links .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  padding: 0.6rem 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+  z-index: 100;
+}
+.nav-links .nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-links .dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: var(--color-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: none;
+}
+.nav-links .dropdown-menu a:hover {
+  background: var(--color-light-gray);
+  color: var(--color-gold);
+}
+.nav-links .dropdown-menu a::before,
+.nav-links .dropdown-menu a::after {
+  content: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-blue);
+}
+.btn-gold:hover {
+  background: var(--color-gold-hover);
+  transform: translateY(-2px);
+}
+.btn-blue {
+  background: var(--color-blue);
+  color: var(--color-white);
+}
+.btn-blue:hover {
+  background: var(--color-darkblue);
+  color: var(--color-gold);
+  transform: translateY(-2px);
+}
+/* Hollow button with a white border and sharp edges (hero) */
+.btn-outline-white {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  border-radius: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.btn-outline-white:hover {
+  background: var(--color-white);
+  color: var(--color-blue);
+  transform: translateY(-2px);
+}
+.btn-outline-white:active {
+  transform: translateY(0);
+}
+
+/* ---------- UNIFIED RICH FOOTER (About page footer) in blue ---------- */
+.rich-footer {
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: 60px 0 0 0;
+  margin-top: 0;
+}
+.rich-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 50px;
+}
+.rich-footer h2 {
+  color: var(--color-white);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.rich-footer h4 {
+  color: var(--color-white);
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+}
+.rich-footer a {
+  display: block;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+.rich-footer a:hover {
+  color: var(--color-gold);
+}
+.rich-footer__underwriter-logo {
+  width: 160px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.rich-footer p strong {
+  color: var(--color-gold);
+}
+.rich-footer__logo {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+.rich-footer p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 12px;
+}
+.rich-footer .rich-newsletter label:focus-within {
+  border-color: var(--color-gold);
+}
+.rich-footer .rich-newsletter input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  width: 100%;
+  padding: 12px 0;
+  font-family: inherit;
+}
+.rich-footer .rich-newsletter input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.rich-newsletter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.rich-newsletter label { flex: 1; display: block; }
+.rich-newsletter button {
+  background: transparent;
+  border: none;
+  color: var(--color-gold);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 0;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.rich-footer__bottom {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+}
+.rich-footer__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.rich-footer__bottom p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.rich-footer__brand {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+.rich-footer__brand strong { color: var(--color-gold); }
+.rich-footer__brand span {
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+.rich-social {
+  display: flex;
+  gap: 15px;
+}
+.rich-social a {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+/* Footer contact list (used in the shared footer markup) */
+.footer-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-contact li {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-contact i {
+  color: var(--color-gold);
+  margin-top: 2px;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .nav-links { display: none; }
+  .rich-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .rich-footer__bottom-inner { flex-direction: column; gap: 15px; }
+  .header-phone { display: none; }
+}
+

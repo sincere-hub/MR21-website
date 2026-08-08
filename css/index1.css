@@ -1,0 +1,1150 @@
+﻿
+    /* ==========================================
+       1. COLOR SYSTEM (BLACK, WHITE, LOGO GOLD)
+       ========================================== */
+    :root {
+      --color-black: #050505;
+      --color-card-bg: #111111;
+      --color-gold: #D4AF37;
+      --color-gold-hover: #B59326;
+      --color-white: #FFFFFF;
+      --color-light-gray: #F8F9FA;
+      --color-border: #E5E7EB;
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================
+       2. ANNOUNCEMENT BAR (EMPTY GOLD STRIP)
+       ========================================== */
+    .announcement-bar {
+      background-color: var(--color-black);
+      height: 30px;
+      width: 100%;
+    }
+
+    /* ==========================================
+       3. HEADER & CLEAN LOGO
+       ========================================== */
+    .header {
+      background: var(--color-white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-wrapper > .btn {
+      flex-shrink: 0;
+    }
+
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 200px;
+      height: 84px;
+      object-fit: contain;
+      background: var(--color-white);
+      border-radius: 8px;
+      display: block;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-gold);
+      color: var(--color-black);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    .brand-text h2 {
+      font-size: 1.35rem;
+      color: var(--color-white);
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+      list-style: none;
+      flex-shrink: 0;
+    }
+
+    .nav-links li {
+      white-space: nowrap;
+    }
+
+    .nav-links a {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      color: var(--color-black);
+      font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 6px 2px 8px;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      opacity: 0;
+      transform: translate(-50%, 4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-hover));
+      transition: width 0.35s ease, left 0.35s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+      letter-spacing: 1px;
+    }
+
+    .nav-links a:hover::before {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a i {
+      font-size: 0.6rem;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover > a i {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 210px;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      margin-top: 14px;
+      z-index: 1001;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: var(--color-black);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-transform: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a::before,
+    .dropdown-menu a::after {
+      content: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--color-light-gray);
+      color: var(--color-gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    .btn-gold:hover {
+      background: var(--color-gold-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-black {
+      background: var(--color-black);
+      color: var(--color-white);
+    }
+
+    .btn-black:hover {
+      background: #222222;
+      color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-gold {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      background: transparent;
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    /* ==========================================
+       4. COMPACT HERO (CLEAR IMAGE, NO OVERLAY)
+       ========================================== */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: var(--color-black); /* fallback so slow-loading media never flashes white */
+    }
+
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-black);
+      background-size: cover;
+      background-position: center center;
+      image-rendering: auto;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    video.hero-slide {
+      object-fit: cover;
+      object-position: center center;
+      image-rendering: auto;
+      display: block;
+    }
+
+    /* Soft scrim so white/gold text stays legible over the media */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 42%, rgba(0,0,0,0.15) 75%);
+      z-index: 1;
+    }
+
+    /* Content sits directly on the media, centered on every slide */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      transition: opacity 0.5s ease;
+    }
+
+    .hero-content.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Centered welcome message shown alone while the video slide is active */
+    .hero-welcome-centered {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease;
+    }
+
+    .hero-welcome-centered.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-welcome-centered__title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      color: var(--color-white);
+      font-size: 4.5rem;
+      line-height: 1.1;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-welcome-centered__msg {
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 1.4rem;
+      max-width: 620px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 4.5rem;
+      line-height: 1.1;
+      color: var(--color-white);
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-content h1 span {
+      color: var(--color-gold);
+    }
+
+    .hero-content p {
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 1.4rem;
+      max-width: 620px;
+      margin: 0 auto 2.2rem auto;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+
+    /* ==========================================
+       5. REUSABLE SECTION HEADERS
+       ========================================== */
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .section-header span {
+      color: var(--color-gold);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: var(--color-black);
+    }
+
+    /* ==========================================
+       6. SHORT & CLEAN ABOUT US
+       ========================================== */
+    .about {
+      padding: 5rem 0;
+      background: var(--color-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center center;
+      image-rendering: auto;
+      background-color: var(--color-black);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      color: var(--color-black);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: #4B5563;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+   /* ==========================================
+   SERVICES SECTION
+   ========================================== */
+.services {
+    background: var(--color-white);
+    padding: 4rem 0;
+}
+
+/* Centered Header */
+.services .section-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+}
+.services .section-header p {
+    color: #6B7280;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Split Layout */
+.services-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* LEFT COLUMN */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Tightened the gap between items */
+}
+
+.service-item {
+    display: flex;
+    align-items: center; /* Aligns icon and text perfectly */
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--color-light-gray);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-gold);
+    transition: var(--transition);
+}
+.service-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.service-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-navy);
+    color: var(--color-gold);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.service-item h4 {
+    font-size: 1rem;
+    color: var(--color-navy);
+    margin: 0;
+}
+
+.service-item p {
+    color: #6B7280;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* RIGHT COLUMN - IMAGE SLIDER */
+.services-visual {
+    position: relative;
+    width: 100%;
+    height: 380px; /* Reduced height so it's not too tall */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(12, 45, 107, 0.10);
+}
+
+.image-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Arrow Controls - one at each edge, vertically centered */
+.slider-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.slider-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    background: rgba(12, 45, 107, 0.7);
+    color: var(--color-white);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 0.9rem;
+    pointer-events: auto;
+}
+
+.slider-controls button:hover {
+    background: var(--color-gold);
+    color: var(--color-navy);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .services-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .services-visual {
+        height: 280px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-visual {
+        height: 220px;
+    }
+}
+     
+    /* ==========================================
+   SIMPLE POLICY PROMO
+   ========================================== */
+:root {
+  /* Ensure these colors match your theme */
+  --color-navy: #0c2d6b;
+  --color-gold: #c49735;
+  --color-white: #ffffff;
+  --color-light-gray: #f8f9fa;
+  --color-border: #e2e8f0;
+}
+
+.policy-promo {
+    position: relative;
+    background-color: var(--color-white);
+    padding: 4rem 0;
+   
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* White overlay so the image shows through but text stays readable */
+.policy-promo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 0;
+}
+
+.policy-promo > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3rem auto;
+}
+
+.promo-header h1 {
+    font-size: 2.2rem;
+    color: var(--color-navy);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.promo-header p {
+    color: #6B7280;
+    font-size: 1rem;
+}
+
+.promo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.promo-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    border: 2px solid var(--color-gold); /* Gold border on div */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promo-card.featured {
+    background: var(--color-navy);
+    color: var(--color-white);
+    border-color: var(--color-gold);
+}
+
+.promo-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.promo-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6B7280;
+}
+
+.promo-card.featured .promo-price span {
+    color: rgba(255,255,255,0.7);
+}
+
+.promo-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-navy);
+}
+
+.promo-card.featured h3 {
+    color: var(--color-white);
+}
+
+.promo-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.promo-features li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: #6B7280;
+}
+
+.promo-card.featured .promo-features li {
+    color: rgba(255,255,255,0.85);
+}
+
+.promo-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-navy {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--color-navy);
+    color: var(--color-white);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-navy:hover {
+    background: #163a7d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .promo-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .promo-header h1 { font-size: 1.8rem; }
+}
+
+ /* ==========================================
+   SIMPLE FUNERAL PLANS PROMO
+   ========================================== */
+.plans-promo {
+    position: relative;
+    background-color: var(--color-white);
+    padding: 4rem 0;
+    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+/* Hero video as the funeral cover section background */
+.plans-promo__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* White overlay so the video shows through but text stays readable */
+.plans-promo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    z-index: 1;
+}
+
+.plans-promo > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.plans-promo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Using the exact same .promo-card styling from the Policy CSS */
+
+/* Responsive adjustments for 4 cards */
+@media (max-width: 1024px) {
+    .plans-promo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .plans-promo-grid { grid-template-columns: 1fr; max-width: 400px; }
+}
+
+    /* ==========================================
+       9. POLICY TERMS SECTION
+       ========================================== */
+    .policy {
+      padding: 4.5rem 0;
+      background: var(--color-light-gray);
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .policy-card {
+      background: var(--color-white);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+    }
+
+    .policy-card i {
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .policy-card h4 {
+      font-size: 1.05rem;
+      color: var(--color-black);
+      margin-bottom: 0.4rem;
+    }
+
+    .policy-card p {
+      font-size: 0.85rem;
+      color: #6B7280;
+    }
+
+    /* ==========================================
+       10. PARTNERS SECTION
+       ========================================== */
+    .partners {
+      padding: 3rem 0;
+      background: var(--color-white);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .partners-wrapper {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .partner-card h4 {
+      color: var(--color-black);
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .partner-card p {
+      font-size: 0.75rem;
+      color: #9CA3AF;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================
+       11. FOOTER
+       ========================================== */
+    footer {
+      background: var(--color-black);
+      color: var(--color-white);
+      padding: 4rem 0 2rem 0;
+      border-top: 2px solid var(--color-gold);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: var(--color-gold);
+    }
+
+    .footer-contact {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 0.8rem;
+      color: #9CA3AF;
+      font-size: 0.88rem;
+    }
+
+    .footer-contact i {
+      color: var(--color-gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #222222;
+      padding-top: 1.5rem;
+      text-align: center;
+      color: #6B7280;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero-section { min-height: 480px; }
+      .hero-content h1 { font-size: 2.6rem; }
+      .hero-welcome-centered__title { font-size: 2.6rem; }
+      .hero-welcome-centered__msg { font-size: 1.05rem; }
+      .hero-content p { font-size: 1.05rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+
+    /* ==========================================
+       12. FAQ SECTION (WHITE/GOLD)
+       ========================================== */
+    .faq-section {
+      padding: 5rem 0;
+      background: var(--color-light-gray);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .faq-search {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 50px;
+      padding: 0.7rem 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-search i {
+      color: var(--color-gold);
+    }
+
+    .faq-search input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--color-black);
+      background: transparent;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .faq-list details {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .faq-list summary {
+      cursor: pointer;
+      padding: 1rem 1.2rem;
+      font-weight: 700;
+      color: var(--color-black);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .faq-list summary::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-list details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-list details p {
+      padding: 0 1.2rem 1rem 1.2rem;
+      color: #6B7280;
+      font-size: 0.9rem;
+    }
+
+    .faq-cta-card {
+      background: var(--color-black);
+      color: var(--color-white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .faq-cta-card i {
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+
+    .faq-cta-card h3 {
+      color: var(--color-white);
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-cta-card p {
+      color: #9CA3AF;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==========================================
+       13. ACTION CARDS (WHITE/GOLD)
+       ========================================== */
+    .action-section {
+      position: relative;
+      background-color: var(--color-white);
+      padding: 5rem 0;
+      background-image: url('../assets/images/gallery04.jpg');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    /* White overlay so the image shows through but text stays readable */
+    .action-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.58);
+      z-index: 0;
+    }
+
+    .action-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .action-card {
+      background: var(--color-light-gray);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .action-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-gold);
+    }
+
+    .action-card__icon {
+      display: inline-grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--color-black);
+      color: var(--color-gold);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .action-card h3 {
+      font-size: 1.2rem;
+      color: var(--color-black);
+      margin-bottom: 0.5rem;
+    }
+
+    .action-card p {
+      color: #6B7280;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .action-card .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (max-width: 850px) {
+      .faq-grid { grid-template-columns: 1fr; }
+    }
+  
