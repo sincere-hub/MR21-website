@@ -243,7 +243,8 @@ ul { list-style: none; }
   overflow: hidden;
   padding-top: 120px;
 }
-.page-hero__video {
+.page-hero__video,
+.page-hero__image {
   position: absolute;
   inset: 0;
   width: 100%;

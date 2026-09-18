@@ -14,7 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.toggle('is-open', isOpen);
       document.body.classList.toggle('nav-open', isOpen);
       toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
       toggleBtn.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+
+    nav.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (!link) return;
+
+      const dropdown = link.closest('.nav-dropdown');
+      if (dropdown && window.innerWidth <= 850 && link.nextElementSibling?.classList.contains('dropdown-menu')) {
+        event.preventDefault();
+        dropdown.classList.toggle('open');
+        return;
+      }
+
+      nav.classList.remove('open', 'is-open');
+      nav.querySelectorAll('.nav-dropdown.open').forEach((item) => item.classList.remove('open'));
+      document.body.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.setAttribute('aria-label', 'Open navigation menu');
+      toggleBtn.querySelector('i').className = 'fa-solid fa-bars';
     });
   }
 

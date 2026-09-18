@@ -48,6 +48,7 @@ select {
 }
 
 .page-hero__video,
+.page-hero__image,
 .plans-hero__video,
 .contact-hero__img {
   width: 100%;
@@ -296,12 +297,13 @@ button {
 
   .page-hero-overview,
   .plans-hero {
-    background-image: url('../assets/images/heromr21.jpeg');
+    background-image: url('../assets/images/gall4.jpeg');
     background-size: cover;
     background-position: center;
   }
 
   .page-hero__video,
+  .page-hero__image,
   .plans-hero__video {
     display: block;
     min-width: 100%;
@@ -606,6 +608,7 @@ button {
 }
 
 .page-hero__video,
+.page-hero__image,
 .plans-hero__video {
   background-color: #05070d;
 }

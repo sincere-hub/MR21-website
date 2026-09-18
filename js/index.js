@@ -1,26 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-nav]');
-  const dropdown = document.querySelector('.nav-dropdown');
 
   // Mobile Menu Toggle
-  toggleBtn.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggleBtn.setAttribute('aria-expanded', isOpen);
-    toggleBtn.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-  });
+  if (toggleBtn && nav) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = !nav.classList.contains('open') && !nav.classList.contains('is-open');
+      nav.classList.toggle('open', isOpen);
+      nav.classList.toggle('is-open', isOpen);
+      document.body.classList.toggle('nav-open', isOpen);
+      toggleBtn.setAttribute('aria-expanded', isOpen);
+      toggleBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      toggleBtn.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
 
-  // Mobile Dropdown toggle (Accordion style on mobile)
-  if(window.innerWidth <= 768) {
-    dropdown.querySelector('a').addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
+    nav.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (!link) return;
+
+      const dropdown = link.closest('.nav-dropdown');
+      if (dropdown && window.innerWidth <= 850 && link.nextElementSibling?.classList.contains('dropdown-menu')) {
+        event.preventDefault();
+        dropdown.classList.toggle('open');
+        return;
+      }
+
+      nav.classList.remove('open', 'is-open');
+      nav.querySelectorAll('.nav-dropdown.open').forEach((item) => item.classList.remove('open'));
+      document.body.classList.remove('nav-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.setAttribute('aria-label', 'Open navigation menu');
+      toggleBtn.querySelector('i').className = 'fa-solid fa-bars';
     });
   }
 
   // Sticky Header scroll background
-  const header = document.querySelector('[data-header]');
+  const header = document.querySelector('[data-header]') || document.querySelector('.header');
   window.addEventListener('scroll', () => {
+    if (!header) return;
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
     } else {

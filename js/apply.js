@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- Header scroll state (glass background) --- */
-    const header = document.querySelector('[data-header]');
+    const header = document.querySelector('[data-header]') || document.querySelector('.header');
     const setHeaderState = () => {
         if (!header) return;
         header.classList.toggle('is-scrolled', window.scrollY > 20);
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --- Existing Header/Nav Code --- */
-    const nav = document.querySelector('[data-nav]');
-    const navToggle = document.querySelector('[data-nav-toggle]');
+    const nav = document.querySelector('[data-nav]') || document.querySelector('.nav-links');
+    const navToggle = document.querySelector('[data-nav-toggle]') || document.querySelector('.nav-toggle');
 
     if (nav && navToggle) {
         navToggle.addEventListener('click', () => {
@@ -25,19 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('is-open', isOpen);
             document.body.classList.toggle('nav-open', isOpen);
             navToggle.setAttribute('aria-expanded', String(isOpen));
+            navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
             navToggle.querySelector('i')?.classList.toggle('fa-xmark', isOpen);
             navToggle.querySelector('i')?.classList.toggle('fa-bars', !isOpen);
         });
 
         nav.addEventListener('click', (event) => {
-            if (event.target.closest('a')) {
-                nav.classList.remove('open');
-                nav.classList.remove('is-open');
-                document.body.classList.remove('nav-open');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.querySelector('i')?.classList.remove('fa-xmark');
-                navToggle.querySelector('i')?.classList.add('fa-bars');
+            const link = event.target.closest('a');
+            if (!link) return;
+
+            const dropdown = link.closest('.nav-dropdown');
+            if (dropdown && window.matchMedia('(max-width: 850px)').matches && link.nextElementSibling?.classList.contains('dropdown-menu')) {
+                event.preventDefault();
+                dropdown.classList.toggle('open');
+                return;
             }
+
+            nav.classList.remove('open');
+            nav.classList.remove('is-open');
+            nav.querySelectorAll('.nav-dropdown.open').forEach((item) => item.classList.remove('open'));
+            document.body.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation menu');
+            navToggle.querySelector('i')?.classList.remove('fa-xmark');
+            navToggle.querySelector('i')?.classList.add('fa-bars');
         });
     }
 
