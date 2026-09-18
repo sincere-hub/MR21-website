@@ -40,7 +40,7 @@
                     <div class="dropdown-menu">
                         <a href="about.html">About MR21</a>
                         <a href="articles.html">Articles</a>
-                        <a href="csi.html">CSI</a>
+                        <a href="about.html">CSI</a>
                     </div>
                 </li>
                 <li class="nav-dropdown">
@@ -51,10 +51,10 @@
                     </div>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="gallery.html">Gallery <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+                    <a href="gallery.html" class="active">Gallery <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
                     <div class="dropdown-menu">
-                        <a href="gallery.html">Images</a>
-                        <a href="gallery.html">Videos</a>
+                        <a href="gallery.html#gallery-images">Images</a>
+                        <a href="gallery.html#gallery-videos">Videos</a>
                     </div>
                 </li>
                 <li><a href="contact.html">Contact</a></li>
@@ -90,7 +90,7 @@
         </section>
 
         <!-- Gallery Grid -->
-        <section class="gallery-section">
+        <section class="gallery-section" id="gallery-images">
             <div class="container">
                 <div class="gallery-intro">
                     <p class="eyebrow">Visual Showcase</p>
@@ -133,7 +133,95 @@
                             <span><i class="fa-regular fa-image"></i> Family Support</span>
                         </div>
                     </div>
+
+                    <div class="gallery-item" data-index="5">
+                        <img src="assets/images/gall1.jpeg" alt="MR21 gallery image 1" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="6">
+                        <img src="assets/images/gall2.jpeg" alt="MR21 gallery image 2" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="7">
+                        <img src="assets/images/gall3.jpeg" alt="MR21 gallery image 3" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="8">
+                        <img src="assets/images/gall4.jpeg" alt="MR21 gallery image 4" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="9">
+                        <img src="assets/images/gall5.jpeg" alt="MR21 gallery image 5" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="10">
+                        <img src="assets/images/gall6.jpeg" alt="MR21 gallery image 6" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-index="11">
+                        <img src="assets/images/gall7.jpeg" alt="MR21 gallery image 7" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span><i class="fa-regular fa-image"></i> MR21 Gallery</span>
+                        </div>
+                    </div>
                     
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section" id="gallery-videos">
+            <div class="container">
+                <div class="gallery-intro">
+                    <p class="eyebrow">Video Showcase</p>
+                    <h2>MR21 Moments in Motion</h2>
+                </div>
+
+                <div class="video-grid">
+                    <article class="video-card">
+                        <video controls preload="metadata" playsinline>
+                            <source src="assets/videos/vid1.mp4" type="video/mp4">
+                            Your browser does not support video playback.
+                        </video>
+                    </article>
+
+                    <article class="video-card">
+                        <video controls preload="metadata" playsinline>
+                            <source src="assets/videos/vid2.mp4" type="video/mp4">
+                            Your browser does not support video playback.
+                        </video>
+                    </article>
+
+                    <article class="video-card">
+                        <video controls preload="metadata" playsinline>
+                            <source src="assets/videos/vid3.mp4" type="video/mp4">
+                            Your browser does not support video playback.
+                        </video>
+                    </article>
+
+                    <article class="video-card">
+                        <video controls preload="metadata" playsinline>
+                            <source src="assets/videos/vid4.mp4" type="video/mp4">
+                            Your browser does not support video playback.
+                        </video>
+                    </article>
                 </div>
             </div>
         </section>

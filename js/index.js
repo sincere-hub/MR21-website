@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================
    SERVICES IMAGE SLIDER
    ========================================== */
-let slideIndex = 0;
+let servicesSlideIndex = 0;
 let slideInterval;
 
 function startSlideShow() {
@@ -92,9 +92,9 @@ function startSlideShow() {
     if (slideInterval) clearInterval(slideInterval);
 
     slideInterval = setInterval(() => {
-        slides[slideIndex].classList.remove('active');
-        slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].classList.add('active');
+        slides[servicesSlideIndex].classList.remove('active');
+        servicesSlideIndex = (servicesSlideIndex + 1) % slides.length;
+        slides[servicesSlideIndex].classList.add('active');
     }, 4000);
 }
 
@@ -103,9 +103,9 @@ function changeSlide(direction) {
     if (slides.length === 0) return;
 
     clearInterval(slideInterval);
-    slides[slideIndex].classList.remove('active');
-    slideIndex = (slideIndex + direction + slides.length) % slides.length;
-    slides[slideIndex].classList.add('active');
+    slides[servicesSlideIndex].classList.remove('active');
+    servicesSlideIndex = (servicesSlideIndex + direction + slides.length) % slides.length;
+    slides[servicesSlideIndex].classList.add('active');
     startSlideShow();
 }
 
